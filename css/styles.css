@@ -1,0 +1,205 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    max-width: 660px;
+    width: 100%;
+    height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+img {
+    visibility: hidden;
+    width: 100%;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    cursor: default;
+}
+
+.deck .card.show {
+    background: #02ccba;
+    font-size: 33px;
+}
+
+.deck .card.show img {
+    visibility: visible;
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: purple;
+    font-size: 33px;
+}
+
+.hidden {
+	display: none;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    max-width: 100%;
+    width: 500px;
+    margin-bottom: 10px;
+    justify-content: space-around;
+    display: flex;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 40px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+    visibility: none;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 300px;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.4); 
+    text-align: center;
+    display: none;
+}
+
+/* Modal Content */
+
+.modal-content {
+    background-color: rgb(223, 66, 244);
+    margin: auto;
+    padding: 50px;
+    border: 1px solid #888;
+    width: 30%;
+   
+}
+
+/* Responsiveness */
+
+@media only screen and (max-width: 700px) {
+
+    .score-panel {
+        width: 90%;
+    }
+
+    .deck {
+        width: 95%;
+        padding: 16px;
+        min-height: 100vw;
+    }
+
+    .deck .card {
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .modal {
+        position: fixed;
+        padding-top: 200px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .modal-content {
+        padding: 0 0 10px 0;
+        width: 60%;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .score-panel {
+        font-size: 20px;
+    }
+
+    .modal {
+        position: fixed;
+        padding-top: 200px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .modal-content {
+        padding: 0 0 10px 0;
+        width: 60%;
+    }
+)
